@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   </head>
+<body>
+
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    outline: none;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+    text-decoration: none;
+    transform: .2s linear;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 7em;
+     scroll-behavior: smooth;
+}
+
+#class {
+    display: flex;
+    width: 800px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+#class:hover {
+    background:  #c0d9d9;
+    transition: 1s ease-in;
+}
+
+.left {
+    background-color: #0e860e;
+    padding: 40px;
+    width: 50%;
+    text-align: center;
+    color: white;
+    clip-path: polygon(0 0, 51vh 0, 100% 95vh, 0 100%);
+}
+
+.right {
+    background-color: whitesmoke;
+    padding: 40px;
+    width: 50%;
+    text-align: center;
+    color: black;
+    clip-path: polygon(20vh 0, 100% 0, 100% 95vh, 0 100%);
+}
+
+#class img {
+    width: 70%;
+    max-width: 200px;
+}
+
+.left h1 {
+    font-family: 'Cursive', sans-serif;
+    font-size: 28px;
+    margin-bottom: 10px;
+    animation-name: moveInLeft;
+    animation-duration: 3s;
+    animation-timing-function: ease-out;
+}
+
+.right h1{
+    font-family: 'Cursive', sans-serif;
+    font-size: 28px;
+    margin-bottom: 10px;
+    animation: moveInRight 3s ease-out;
+}
+
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+
+    80% {
+        transform: translateX(1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+
+    80% {
+        transform: translateX(-1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+#class h3 {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.left .button {
+    width: 40%;
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 20px;
+    color:  black;
+    background-color:  #c0d9d9;
+    cursor: pointer;
+    border: none;
+}
+
+.left .button:hover {
+    background-color: whitesmoke;
+    font-size: 12px;
+    transition: 2s;
+}
+
+.right .button {
+    width: 40%;
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 20px;
+    color:  black;
+    background-color: #0e860e;
+    cursor: pointer;
+    border: none;
+}
+
+.right .button:hover {
+    background-color:  #c0d9d9 ;
+    font-size: 12px;
+    transition: 2s;
+}
+  </style>
+  
+<section id="class">
+         <div class="left">
+            <img src="logo.png" alt="">
+             <h1>༆ 𝐅íkkƴ Ɓ€£ ༆</h1>
+               <h3>Welcome to my Cake Page</h3>
+                 <form action="create.html">
+                  <button class="button">Sign Up</button> 
+                    </form>
+</div>
+                        <div class="right">
+                      <img src="logo.png" alt="">
+                    <h1>༆ 𝐅íkkƴ Ɓ€£ ༆</h1>
+                 <h3>Welcome to my Cake Page</h3>
+            <form action="signIn.html">
+             <button class="button">Sign In</button> 
+            </form>
+</div>
+</section>
+
+</body>
+</html>

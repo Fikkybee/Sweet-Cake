@@ -1,0 +1,740 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        outline: none;
+        border: none;
+        text-decoration: none;
+        justify-content: center;
+        align-items: center;
+    }
+
+    html {
+        font-size: 62.5%;
+        overflow-x: hidden;
+        scroll-padding-top: 7em;
+        scroll-behavior: smooth;
+    }
+
+    .class {
+        width: 40%;
+        height: initial;
+        background: honeydew;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .class:hover {
+        background-color: #c0d9d9;
+        transition: 4s;
+    }
+
+    .container {
+        width: 50rem;
+        background-color: #0e860e;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px #0000001a;
+        text-align: center;
+        align-items: center;
+        overflow: hidden;
+        color: whitesmoke;
+        padding: 30px 10% 30px 0; /* Top, Right, Bottom, Left padding */
+    }
+
+    .left-section img {
+        width: 80%;
+        max-width: 200px;
+        padding-bottom: 5px;
+    }
+
+    .left-section h1 {
+        font-family: 'Cursive', sans-serif;
+        font-size: 28px;
+        margin-bottom: 10px;
+        animation-name: moveInLeft;
+        animation-duration: 3s;
+        animation-timing-function: ease-out;
+    }
+
+    .button1 {
+        border: none;
+        width: 80px;
+        text-align: center;
+        cursor: pointer;
+        color: black;
+        font-size: 15px;
+        justify-content: center;
+        padding: 10px;
+        margin-top: 10px;
+        background-color: #c0d9d9;
+        border-radius: 10px;
+        transition: 0.3s;
+    }
+
+    .button1:hover {
+        background-color: whitesmoke;
+        font-size: 12px;
+    }
+
+    .field {
+        position: relative;
+        height: 48px;
+        width: 80%;
+        max-width: 250px;
+        color: #c0d9d9;
+        overflow: hidden;
+        margin-bottom: 15px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    input {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        color: white;
+        line-height: 52px;
+        outline: 0;
+        background-color: inherit;
+        padding-top: 20px;
+        border: none;
+        box-sizing: border-box;
+        border-bottom: 1px solid #c0d9d9;
+    }
+
+    .label-wrapper {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        bottom: 0;
+        background-color: inherit;
+        left: 0;
+        pointer-events: none;
+        border-bottom: 1px solid #c0d9d9;
+    }
+
+    .label-wrapper::after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        bottom: 1px;
+        background-color: inherit;
+        left: 0;
+        transform: translateX(-100%);
+        transition: transform 0.2s ease;
+    }
+
+    .label-text {
+        position: absolute;
+        bottom: 10px;
+        left: 5px;
+        transition: all 0.2s ease;
+    }
+
+    .input:focus + .label-wrapper .label-text,
+    .input:valid + .label-wrapper .label-text {
+        font-size: 12px;
+        color: #c0d9d9;
+        transform: translateY(-150%);
+    }
+
+    .input:focus + .label-wrapper::after,
+    .input:valid + .label-wrapper::after {
+        transform: translateX(0%);
+    }
+
+    #google-signin {
+        background-color: #c0d9d9;
+        color: #4A4A4A;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 20px;
+        border: none;
+        width: 35%;
+        padding: 8px;
+        margin: 4px auto;
+        cursor: pointer;
+    }
+
+    #google-signin img {
+        width: 20px;
+        margin-right: 10px;
+    }
+
+    .forgot-password a {
+        text-decoration: none;
+        color: whitesmoke;
+    }
+
+    .forgot-password a:hover {
+        color: #f5f5f591;
+    }
+
+    .divider {
+        margin: 15px 0;
+        font-size: 14px;
+    }
+
+    .create-account {
+        font-size: 14px;
+        margin-top: 4px;
+    }
+
+    .create-account a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .create-account a:hover {
+        text-decoration: underline;
+        color: #f5f5f591;
+    }
+</style>
+
+<section class="class">
+    <div class="container">
+        <div class="left-section">
+            <img src="logo.png" alt="fikkybee">
+            <h1>༆ 𝐅íkkƴ Ɓ€£ ༆</h1>
+            <h3>Welcome to my Cake Page</h3>
+        </div>
+
+        <script>
+            // Function to check if password and confirm password match
+            function validatePasswords() {
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('comfirm-password').value;
+
+                // Check if the passwords match
+                if (password !== confirmPassword) {
+                    alert("The Password Doesn't Match");
+                    return false; // Prevent form submission
+                }
+                return true;
+            }
+
+            // Function to store the user data in localStorage
+            function storeUserData() {
+                const username = document.getElementById('username').value;
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+
+                // Save the user data into localStorage
+                localStorage.setItem('username', username);
+                localStorage.setItem('email', email);
+                localStorage.setItem('password', password);
+
+                // After storing the data, allow form submission
+                return true;
+            }
+        </script>
+
+        <form action="signin.html" onsubmit="return validatePasswords() && storeUserData()">
+            <div class="field">
+                <input 
+                    type="text" 
+                    id="username" 
+                    name="username" 
+                    class="input"
+                    autocomplete="off" 
+                    required 
+                />
+                <label for="username" class="label-wrapper">
+                    <span class="label-text">Username</span>
+                </label>
+            </div>
+        
+            <div class="field">
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    class="input"
+                    autocomplete="off" 
+                    required/>
+                <label for="email" class="label-wrapper">
+                    <span class="label-text">Email</span>
+                </label>
+            </div>
+        
+            <div class="field">
+                <input 
+                    type="password" 
+                    id="password" 
+                    name="password" 
+                    class="input"
+                    autocomplete="off" 
+                    required/>
+                <label for="password" class="label-wrapper">
+                    <span class="label-text">Password</span>
+                </label>
+            </div>
+        
+            <div class="field">
+                <input 
+                    type="password" 
+                    id="comfirm-password" 
+                    name="comfirm-password" 
+                    class="input"
+                    autocomplete="off" 
+                    required/>
+                <label for="comfirm-password" class="label-wrapper">
+                    <span class="label-text">Confirm Password</span>
+                </label>
+            </div>
+
+            <div class="forgot-password">
+                <a href="forgot.html">Forgot password?</a>
+            </div>
+            <button class="button1">Sign Up</button>
+        </form>
+
+        <div class="divider">--------
+----- or -------------</div>
+        
+        <button id="google-signin">
+            <img src="Logo.jpg" alt="Google Logo"> Sign in with Google
+        </button>
+
+        <p class="create-account">New to My Cake Page? <a href="signIn.html">Already have account</a></p>
+    </div>
+</section>
+
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+            scroll-padding-top: 7em;
+            scroll-behavior: smooth;
+        }
+
+        .class {
+            width: 40%;
+            height: initial;
+            background: honeydew;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .class:hover {
+            background-color: #c0d9d9;
+            transition: 4s;
+        }
+
+        .container {
+            width: 50rem;
+            background-color: #0e860e;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px #0000001a;
+            text-align: center;
+            align-items: center;
+            overflow: hidden;
+            color: whitesmoke;
+            padding: 30px 10% 30px 0; /* Top, Right, Bottom, Left padding */
+        }
+
+        .left-section img {
+            width: 80%;
+            max-width: 200px;
+            padding-bottom: 5px;
+        }
+
+        .left-section h1 {
+            font-family: 'Cursive', sans-serif;
+            font-size: 28px;
+            margin-bottom: 10px;
+            animation-name: moveInLeft;
+            animation-duration: 3s;
+            animation-timing-function: ease-out;
+        }
+
+        .button1 {
+            border: none;
+            width: 80px;
+            text-align: center;
+            cursor: pointer;
+            color: black;
+            font-size: 15px;
+            justify-content: center;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #c0d9d9;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .button1:hover {
+            background-color: whitesmoke;
+            font-size: 12px;
+        }
+
+        .field {
+            position: relative;
+            height: 48px;
+            width: 80%;
+            max-width: 250px;
+            color: #c0d9d9;
+            overflow: hidden;
+            margin-bottom: 15px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        input {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            color: white;
+            line-height: 52px;
+            outline: 0;
+            background-color: inherit;
+            padding-top: 20px;
+            border: none;
+            box-sizing: border-box;
+            border-bottom: 1px solid #c0d9d9;
+        }
+
+        .label-wrapper {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            bottom: 0;
+            background-color: inherit;
+            left: 0;
+            pointer-events: none;
+            border-bottom: 1px solid #c0d9d9;
+        }
+
+        .label-wrapper::after {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            bottom: 1px;
+            background-color: inherit;
+            left: 0;
+            transform: translateX(-100%);
+            transition: transform 0.2s ease;
+        }
+
+        .label-text {
+            position: absolute;
+            bottom: 10px;
+            left: 5px;
+            transition: all 0.2s ease;
+        }
+
+        .input:focus + .label-wrapper .label-text,
+        .input:valid + .label-wrapper .label-text {
+            font-size: 12px;
+            color: #c0d9d9;
+            transform: translateY(-150%);
+        }
+
+        .input:focus + .label-wrapper::after,
+        .input:valid + .label-wrapper::after {
+            transform: translateX(0%);
+        }
+
+        #google-signin {
+            background-color: #c0d9d9;
+            color: #4A4A4A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            border: none;
+            width: 35%;
+            padding: 8px;
+            margin: 4px auto;
+            cursor: pointer;
+        }
+
+        #google-signin img {
+            width: 20px;
+            margin-right: 10px;
+        }
+
+        .forgot-password a {
+            text-decoration: none;
+            color: whitesmoke;
+        }
+
+        .forgot-password a:hover {
+            color: #f5f5f591;
+        }
+
+        .divider {
+            margin: 15px 0;
+            font-size: 14px;
+        }
+
+        .create-account {
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        .create-account a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .create-account a:hover {
+            text-decoration: underline;
+            color: #f5f5f591;
+        }
+
+        /* Media Queries for Responsiveness */
+
+        @media screen and (max-width: 1200px) {
+            .container {
+                width: 90%;
+            }
+
+            .left-section img {
+                width: 70%;
+                max-width: 180px;
+            }
+
+            .left-section h1 {
+                font-size: 24px;
+            }
+
+            .button1 {
+                width: 100px;
+            }
+
+            .field {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                width: 100%;
+                padding: 20px;
+            }
+
+            .left-section img {
+                width: 60%;
+                max-width: 150px;
+            }
+
+            .left-section h1 {
+                font-size: 20px;
+            }
+
+            .button1 {
+                width: 120px;
+            }
+
+            .field {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .container {
+                width: 100%;
+                padding: 10px;
+            }
+
+            .left-section img {
+                width: 50%;
+                max-width: 120px;
+            }
+
+            .left-section h1 {
+                font-size: 18px;
+            }
+
+            .button1 {
+                width: 150px;
+            }
+
+            .field {
+                width: 100%;
+            }
+
+            .forgot-password a {
+                font-size: 12px;
+            }
+
+            .divider {
+                font-size: 12px;
+            }
+
+            .create-account {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="class">
+        <div class="container">
+            <div class="left-section">
+                <img src="logo.png" alt="fikkybee">
+                <h1>༆ 𝐅íkkƴ Ɓ€£ ༆</h1>
+                <h3>Welcome to my Page</h3>
+            </div>
+
+            <script>
+                // Function to check if password and confirm password match
+                function validatePasswords() {
+                    const password = document.getElementById('password').value;
+                    const confirmPassword = document.getElementById('comfirm-password').value;
+
+                    // Check if the passwords match
+                    if (password !== confirmPassword) {
+                        alert("The Password Doesn't Match");
+                        return false; // Prevent form submission
+                    }
+                    return true;
+                }
+
+                // Function to store the user data in localStorage
+                function storeUserData() {
+                    const username = document.getElementById('username').value;
+                    const email = document.getElementById('email').value;
+                    const password = document.getElementById('password').value;
+
+                    // Save the user data into localStorage
+                    localStorage.setItem('username', username);
+                    localStorage.setItem('email', email);
+                    localStorage.setItem('password', password);
+
+                    // After storing the data, allow form submission
+                    return true;
+                }
+            </script>
+
+            <form action="signin.html" onsubmit="return validatePasswords() && storeUserData()">
+                <div class="field">
+                    <input type="text" id="username" name="username" class="input" autocomplete="off" required />
+                    <label for="username" class="label-wrapper">
+                        <span class="label-text">Username</span>
+                    </label>
+                </div>
+
+                <div class="field">
+                    <input type="email" id="email" name="email" class="input" autocomplete="off" required />
+                    <label for="email" class="label-wrapper">
+                        <span class="label-text">Email</span>
+                    </label>
+                </div>
+
+                <div class="field">
+                    <input type="password" id="password" name="password" class="input" autocomplete="off" required />
+                    <label for="password" class="label-wrapper">
+                        <span class="label-text">Password</span>
+                    </label>
+                </div>
+
+                <div class="field">
+                    <input type="password" id="comfirm-password" name="comfirm-password" class="input" autocomplete="off" required />
+                    <label for="comfirm-password" class="label-wrapper">
+                        <span class="label-text">Confirm Password</span>
+                    </label>
+                </div>
+
+                <div class="forgot-password">
+                    <a href="forgot.html">Forgot password?</a>
+                </div>
+                <button class="button1">Sign Up</button>
+            </form>
+
+            <div class="divider">-------- or -------------</div>
+
+            <button id="google-signin">
+                <img src="Logo.jpg" alt="Google Logo"> Sign in with Google
+            </button>
+
+            <p class="create-account">New to ༆ 𝐅íkkƴ Ɓ€£ ༆? <a href="signIn.html">Already have account</a></p>
+        </div>
+    </section>
+
+</body>
+
+</html>
